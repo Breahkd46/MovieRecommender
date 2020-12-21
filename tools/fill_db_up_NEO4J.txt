@@ -1,0 +1,29 @@
+:auto USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'http://camillepradel.fr/teaching/nosql/movielens_export/users.csv' AS users
+CREATE (u:User {id : toInteger(users.id), sex : users.sex, age : toInteger(users.age),occupation : users.occupation, zip_code : users.zip_code});
+
+:auto USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'http://camillepradel.fr/teaching/nosql/movielens_export/movies.csv' AS movies
+CREATE (m:Movie {id : toInteger(movies.id), title : movies.title, date : toInteger(movies.date)});
+
+:auto USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'http://camillepradel.fr/teaching/nosql/movielens_export/genres.csv' AS genres
+CREATE (u:Genre {id : toInteger(genres.id), name : genres.name});
+
+:auto USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'http://camillepradel.fr/teaching/nosql/movielens_export/mov_genre.csv' AS mov_genre
+MERGE (m : Movie { id : toInteger(mov_genre.mov_id) })
+MERGE (g : Genre { id : toInteger(mov_genre.genre) })
+CREATE (m)-[:CATEGORIZED_AS]->(g);
+
+:auto USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'http://camillepradel.fr/teaching/nosql/movielens_export/ratings.csv' AS ratings
+MERGE (u : User { id : toInteger(ratings.user_id) })
+MERGE (m : Movie { id : toInteger(ratings.mov_id) })
+CREATE (u)-[:RATED { note : toInteger(ratings.rating), timestamp : toInteger(ratings.timestamp) } ]->(m);
+
+:auto USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'http://camillepradel.fr/teaching/nosql/movielens_export/friends.csv' AS friends
+MERGE (u1:User { id : toInteger(friends.user1_id) })
+MERGE (u2:User { id : toInteger(friends.user2_id) })
+CREATE (u1)-[:FRIEND_OF]->(u2);

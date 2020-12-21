@@ -8,6 +8,9 @@ public class Movie {
     private String title;
     private List<Genre> genres;
 
+    public Movie() {
+    }
+
     public Movie(int id, String title, List<Genre> genres) {
         this.id = id;
         this.title = title;
@@ -24,5 +27,17 @@ public class Movie {
 
     public List<Genre> getGenres() {
         return this.genres;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 }

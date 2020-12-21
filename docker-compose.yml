@@ -12,7 +12,7 @@ lamp:
   image: tutum/lamp
   restart: always
   ports:
-    - "3306:3306"    
+    - "3306:3306"
 
 mongo:
   image: mongo
@@ -22,7 +22,7 @@ mongo:
   environment:
     MONGO_INITDB_ROOT_USERNAME: root
     MONGO_INITDB_ROOT_PASSWORD: root
-    
+
 neo4j:
   image: neo4j
   restart: always

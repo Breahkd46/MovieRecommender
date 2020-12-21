@@ -9,7 +9,7 @@
 <body>
 
 <h1>
-	Vos films notés
+	Vos films notÃ©s
 </h1>
 <ul>
 	<c:forEach items="${ratings}" var="rating">
