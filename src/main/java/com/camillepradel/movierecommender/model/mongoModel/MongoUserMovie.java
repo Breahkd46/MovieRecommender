@@ -2,13 +2,13 @@ package com.camillepradel.movierecommender.model.mongoModel;
 
 public class MongoUserMovie {
     public int movieid;
-    public float rating;
+    public int rating;
     public int timestamp;
 
     public MongoUserMovie() {
     }
 
-    public MongoUserMovie(int movieid, float rating, int timestamp) {
+    public MongoUserMovie(int movieid, int rating, int timestamp) {
         this.movieid = movieid;
         this.rating = rating;
         this.timestamp = timestamp;
@@ -22,11 +22,11 @@ public class MongoUserMovie {
         this.movieid = movieid;
     }
 
-    public float getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 

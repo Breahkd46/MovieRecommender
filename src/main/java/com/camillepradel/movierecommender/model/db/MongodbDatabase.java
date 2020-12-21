@@ -87,13 +87,13 @@ public class MongodbDatabase extends AbstractDatabase {
 
         return StreamSupport.stream(this.database.getCollection(USERS).aggregate(Arrays.asList(
                 match(Filters.eq("_id", userId)),
-                Aggregates.unwind("$movies"),
-                Aggregates.project(Projections.fields(
-                        Projections.computed("movieid", "$movies.movieid"),
-                        Projections.computed("movierating", "$movies.rating")
+                unwind("$movies"),
+                project(Projections.fields(
+                        computed("movieid", "$movies.movieid"),
+                        computed("movierating", "$movies.rating")
                 )),
-                Aggregates.lookup(MOVIES, "movieid", "_id", "movie"),
-                Aggregates.unwind("$movie")))
+                lookup(MOVIES, "movieid", "_id", "movie"),
+                unwind("$movie")))
                 .spliterator(), false)
                 .map(document -> {
                     Document doc = ((Document) document.get("movie"));

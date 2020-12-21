@@ -9,10 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,7 +21,7 @@ public class MySqlDatabase extends AbstractDatabase {
     String url = "jdbc:mysql://localhost:3306/movie_recommender"
             + "?zeroDateTimeBehavior=convertToNull&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     String login = "admin";
-    String password = "Q86PhnJRiEa7";
+    String password = "mysql";
 
     public MySqlDatabase() {
         // load JDBC driver

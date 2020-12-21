@@ -1,5 +1,0 @@
-# sudo apt install mongodb-org-tools
-
-mongoimport --authenticationDatabase admin --username root --password root --db MovieLens --collection movies --file movielens_movies.json
-
-mongoimport --authenticationDatabase admin --username root --password root --db MovieLens --collection users --file movielens_users.json

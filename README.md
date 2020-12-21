@@ -4,28 +4,47 @@
 
 * Docker
 * Maven
+* mongo (CLI) (for shell connection)
 
 ## Launcher
 
 #### Application
 
 1) Install packages
-    ```
+    ```shell
     mvn clean install
     ```
 
 2) Start the application
-    ```
+    ```shell
      mvn tomcat7:run -X
     ```
 
 #### Docker services
-```
+```shell
 docker-compose up -d
 ```
 
-#### Mongo Shell via terminal
+#### Import data
+
+Mongo importation
+```shell
+mvn exec:java@mongo-import
 ```
+
+SQL importation
+```shell
+mvn exec:java@sql-import
+```
+
+Neo4J importation
+```shell
+mvn exec:java@neo4j-import
+```
+
+
+#### Mongo Shell via terminal
+```shell
 mongo -u root -p root --authenticationDatabase admin MovieLens
 ```
 

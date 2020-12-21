@@ -1,10 +1,10 @@
 package com.camillepradel.movierecommender.model.mongoModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MongoUser {
     public int _id;
-    public String name;
     public String occupation;
     public int age;
     public String gender;
@@ -13,20 +13,20 @@ public class MongoUser {
     public MongoUser() {
     }
 
+    public MongoUser(int _id, String occupation, int age, String gender) {
+        this._id = _id;
+        this.occupation = occupation;
+        this.age = age;
+        this.gender = gender;
+        this.movies = new ArrayList<>();
+    }
+
     public int get_id() {
         return _id;
     }
 
     public void set_id(int _id) {
         this._id = _id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getOccupation() {
