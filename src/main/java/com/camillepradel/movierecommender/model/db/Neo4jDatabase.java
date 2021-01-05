@@ -41,7 +41,7 @@ public class Neo4jDatabase extends AbstractDatabase {
     public List<Movie> getMoviesRatedByUser(int userId) {
         // TODO: write query to retrieve all movies rated by user with id userId
 
-        String matchQuery = "MATCH (u:User {id: $id})-[:RATED]->(m:Movie)-[:CATEGORIZED_AS]->(g:Genre) RETURN m";
+        String matchQuery = "MATCH (u:User {id: 1})-[:RATED]->(m:Movie)-[:CATEGORIZED_AS]->(g:Genre) RETURN m, collect(g) as genres";
 
         try (Session session = driver.session()) {
             return session.run(matchQuery, parameters("id", userId)).list(r ->

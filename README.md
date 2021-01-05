@@ -48,6 +48,17 @@ mvn exec:java@neo4j-import
 mongo -u root -p root --authenticationDatabase admin MovieLens
 ```
 
+## Links
+
+* http://localhost:8080/MovieRecommender/
+* http://localhost:8080/MovieRecommender/hello?name=UT2
+* http://localhost:8080/MovieRecommender/movies
+* http://localhost:8080/MovieRecommender/movies?user_id=1
+* http://localhost:8080/MovieRecommender/movieratings?user_id=1
+* http://localhost:8080/MovieRecommender/recommendations?user_id=1&processing_mode=1
+* http://localhost:8080/MovieRecommender/recommendations?user_id=1&processing_mode=2
+* http://localhost:8080/MovieRecommender/recommendations?user_id=1&processing_mode=3
+
 ## Benchmark
 
 * TestRe
